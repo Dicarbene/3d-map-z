@@ -180,7 +180,7 @@
       -->
 
       <a href="#" id="pathroaming" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-filter'">选择坐标</a>
-      <div href="#" id="select" >X=</div>
+      <div>所选坐标为:</div><div href="#" id="select" ></div>
       <!--
       <a href="#" class="easyui-menubutton" data-options="menu:'#mm8'">About</a>
       <div id="mm8" class="menu-content" style="background:#f0f0f0;padding:10px;text-align:left">
@@ -1299,56 +1299,15 @@
       // 处理用户输入事件。可以添加自定义功能以在以下位置执行当用户输入输入时。
       $("#pathroaming").click(function () {
         //console.log('now\n')
-        var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas); // viewer.scene.canvas => 用于为其创建场景的HTML canvas元素。
-        var isClickAgain = false;
-        var start = null;
-        var entd = null;
-        var resPos = null;
-        var x=0;
         let temp = document.createElement('b')
-        temp.style="font-size: 1.5em;color: black;"
-
-        // 鼠标左键单击开始绘制
-        handler.setInputAction(function (evt) {
-            x++;
-          //console.log('click\n')
-          // 返回具有' primitive'属性的对象，该对象包含场景中的第一个（顶部）基本体在特定的窗口坐标处；
-          var pick = viewer.scene.pick(evt.position);
-          //console.log(evt.position)
-          var cartesian = getCatesian3FromPX(evt.position, viewer);
-
-          while (!isClickAgain) {
-            console.log(isClickAgain);
-            isClickAgain=true;
-            start = viewer.entities.add({ // 起始点
-              name: "图标点",
-              position: cartesian,
-              billboard: {
-                image: './img/Mark4.png',
-                scale: 1,
-                horizontalOrigin: Cesium.HorizontalOrigin.CENTER,
-                verticalOrigin: Cesium.VerticalOrigin.BOTTOM
-              }
-            });
-            
-            var pos=cartesianToLnglat(start.position.getValue(),true);
-            //console.log(pos[0],pos[1]);
-
-            resPos=pos[0]+','+pos[1];
-
-            temp.textContent = resPos;
-            if(x!=1){
-                document.querySelector('#select').removeChild(temp);
-            }
-            document.querySelector('#select').appendChild(temp);
-
-          }
-          isClickAgain=false;
-          return;
-        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-
-
-      });//路径规划
+        temp.style = "font-size: 1em;color: teal;"
+        $(cesiumContainer).click(()=>{
+          
+          temp.textContent = document.querySelector("#longitude_show").innerHTML + ',' + document.querySelector("#latitude_show").innerHTML;
+          document.querySelector('#select').innerHTML = '';
+          document.querySelector('#select').appendChild(temp);
+        })
+      });
 
 
       // 访问高德接口

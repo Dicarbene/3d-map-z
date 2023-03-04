@@ -310,7 +310,7 @@
           arr.push(lnglatToCartesian(lnglatArr[i]));
         }
         return arr;
-      } 
+      }
 
       //添加天地图影像
       var viewer = new Cesium.Viewer("cesiumContainer", {
@@ -1277,7 +1277,7 @@
             },
             success: function (json) {
               // 由于线涉及坐标较多 此处返回的坐标 未转为wgs84
-              console.log("json,\n",json);
+              console.log("json,\n", json);
               var data = "";
               if (!json || !json.route || !json.route.paths) {
                 data = "";
@@ -1347,7 +1347,7 @@
         var startp = cartesianToLnglat(start, true);
         var endP = cartesianToLnglat(end, true);
         var search = new searchRoute([startp[0], startp[1]], [endP[0], endP[1]]);
-        console.log("showRes,\n",search);
+        console.log("showRes,\n", search);
         search.start({
           strategy: 11,
           callback: function (data) {
