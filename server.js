@@ -6,5 +6,6 @@ var app = express();
 app.use(express.static(path.join(__dirname, '')));
 
 app.listen(4111, () => {
-  console.log(`App listening at port 4111`)
+  console.log(`App listening at port 4111`);
+  console.log(`Server running at: http://localhost:4111/`);
 })

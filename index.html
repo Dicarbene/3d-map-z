@@ -324,7 +324,7 @@
         shouldAnimate: true,
         vrButton: true,
         imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
-          url: "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=5235dc51006f36a4953c2a7f0b951050",
+          url: "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=3e94d173c30a97752f817d997e44c437",
           layer: "tdtBasicLayer",
           style: "default",
           format: "image/jpeg",
@@ -342,7 +342,7 @@
       var layers = viewer.imageryLayers;
 
       var balckMarble = layers.addImageryProvider(new Cesium.WebMapTileServiceImageryProvider({
-        url: 'http://t0.tianditu.gov.cn/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=5235dc51006f36a4953c2a7f0b951050'
+        url: 'http://t0.tianditu.gov.cn/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=3e94d173c30a97752f817d997e44c437'
       }));
 
       balckMarble.splitDirection = Cesium.ImagerySplitDirection.LEFT;
